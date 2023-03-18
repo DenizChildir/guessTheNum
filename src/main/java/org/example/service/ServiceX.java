@@ -1,5 +1,7 @@
-package org.example;
+package org.example.service;
 
+import org.example.dao.DAO;
+import org.example.dto.Game;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package example;
 
-import org.example.ServiceX;
+import org.example.service.ServiceX;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

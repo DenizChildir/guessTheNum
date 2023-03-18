@@ -1,4 +1,4 @@
-package org.example;
+package org.example.dto;
 
 import java.util.LinkedList;
 
@@ -6,7 +6,7 @@ public class Round {
     private int id;
     private int inProgress;
 
-    LinkedList<Game> gameList=new LinkedList<>();
+    public LinkedList<Game> gameList=new LinkedList<>();
 
     public Round(int id, int inProgress) {
         this.id = id;

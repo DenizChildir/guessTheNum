@@ -1,6 +1,7 @@
-package org.example;
+package org.example.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.dto.Game;
+import org.example.dto.Round;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
@@ -22,9 +23,6 @@ public class DAO {
     private final String dbName = "mydatabase";
     private final String url = "jdbc:mysql://localhost:3306/mydatabase";
     DataSource dataSource = DataSourceFactory.createDataSource();
-//    @Autowired
-//   private JdbcTemplate jdbcTemplate;
-
     private final JdbcTemplate jdbcTemplate=new JdbcTemplate(dataSource);
 
     public void createTables() {
@@ -95,16 +93,16 @@ public class DAO {
                     int id = rs.getInt("id");
                     int inProgress = rs.getInt("in_progress");
 
-                   
+                    // Create a new Round object and add it to the list
                     Round round = new Round(id, inProgress);
 
-
+                    // Retrieve all games associated with the round
                     LinkedList<Game> games = getGamesForRound(id);
 
-
+                    // Set the list of games to the gameList field of the Round object
                     round.setGameList(games);
 
-
+                    // Add the round to the list of rounds
                     rounds.add(round);
                 }
 
@@ -137,7 +135,7 @@ public class DAO {
                         games.add(game);
                     }
 
-
+                    // Set the list of games to the gameList field of the Round object
                     finalRound.setGameList(games);
                     return games;
                 }

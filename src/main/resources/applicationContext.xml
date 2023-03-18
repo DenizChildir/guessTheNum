@@ -36,7 +36,7 @@
         <constructor-arg ref="dataSource" />
     </bean>
 
-    <bean id="dao" class="org.example.DAO">
+    <bean id="dao" class="org.example.dao.DAO">
         <constructor-arg ref="jdbcTemplate" />
     </bean>
 

@@ -1,5 +1,7 @@
-package org.example;
+package org.example.dao;
 
+import org.example.dto.Game;
+import org.example.dto.Round;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,7 +27,7 @@ public class RoundDAO {
         return jdbcTemplate.query(SELECT_ALL_ROUNDS_QUERY, new RoundRowMapper());
     }
 
-    static class RoundRowMapper implements RowMapper<Round> {
+    public static class RoundRowMapper implements RowMapper<Round> {
         @Override
         public Round mapRow(ResultSet resultSet, int rowNum) throws SQLException {
             int id = resultSet.getInt("id");
@@ -105,13 +107,13 @@ public class RoundDAO {
                                 games.add(game);
                             }
 
-
+                            // Add the list of games to the round object
                             round.setGameList(games);
                             return games;
                         }
                     });
 
-
+                    // Add the round to the list of rounds
                     rounds.add(round);
                 }
 

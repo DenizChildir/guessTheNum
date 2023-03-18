@@ -1,5 +1,7 @@
-package org.example;
+package org.example.controller;
 
+import org.example.service.ServiceX;
+import org.example.dao.DAO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
